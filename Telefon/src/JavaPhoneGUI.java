@@ -35,7 +35,7 @@ class JavaPhoneGUI extends JFrame {
   
     // Declare and create other GUI elements
     JTextField display = new JTextField();
-    JLabel stateLabel = new JLabel();
+    JLabel stateLabel = new JLabel("ready");
     
     // ...
     
@@ -50,6 +50,7 @@ class JavaPhoneGUI extends JFrame {
       // Initialise frame and GUI elements and
       setTitle("JavaPhone");
       setBackground(Color.lightGray);
+      stateLabel.setForeground(Color.green);
       setResizable(false);
       display.setEditable(false);
       setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -57,12 +58,28 @@ class JavaPhoneGUI extends JFrame {
       // Set layout of all panels and of frame
       keyPanel.setLayout(new GridLayout(4, 3, 20, 20));
       keyDisplayPanel.setLayout(new BorderLayout(20, 20));
+      hookStatePanel.setLayout(new BorderLayout(20, 20));
       // ...
       setLayout(new BorderLayout(20, 20));
    
       // Add key buttons to key panel
       keyPanel.add(key1);
-      // ...
+      keyPanel.add(key2);
+      keyPanel.add(key3);
+      keyPanel.add(key4);
+      keyPanel.add(key5);
+      keyPanel.add(key6);
+      keyPanel.add(key7);
+      keyPanel.add(key8);
+      keyPanel.add(key9);
+      keyPanel.add(keySharp);
+      keyPanel.add(key0);
+      keyPanel.add(keyStar);
+      keyPanel.add(key1);
+      
+      hookStatePanel.add(stateLabel, BorderLayout.NORTH);
+      hookStatePanel.add(keyHook, BorderLayout.CENTER);
+      
 
       // Assemble key/display panel
       keyDisplayPanel.add(display, BorderLayout.NORTH);
@@ -73,5 +90,6 @@ class JavaPhoneGUI extends JFrame {
 
       // Add key/display panel and hook/state panel to frame
       add(keyDisplayPanel, BorderLayout.CENTER);
+      add(hookStatePanel, BorderLayout.WEST);
     }
 }
